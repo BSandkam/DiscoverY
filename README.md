@@ -1,3 +1,5 @@
+# This is personal fork of DiscoverY - found some of the instructions incorrect, correcting here.
+
 # DiscoverY
 DiscoverY is a tool to shortlist Y-specific contigs from an assembly of male whole genome sequencing data, based on exact _k-mer_ matches with a female. This tool is platform agnostic and has been tested on male assemblies from Illumina, PacBio and 10x Genomics. The female can be a reference assembly or a low coverage raw reads dataset. DiscoverY can be ran in two different modes: female_only or female+male.  In the female_only mode, the proportion shared between each contig with a female reference is computed; female+male mode uses both proportion of k-mers of each contig shared with a reference female and the kmer counts from the male raw reads to estimate each contig's depth-of-coverage.
 
@@ -37,11 +39,11 @@ The output of DiscoverY is an annotated file: ```proportion_annotated_contigs.fa
 
 The fasta file will be annotated like the following in the female_only mode:
 
-`>record_id length_of_contig proportion_shared_with_female`
+`>record_id length_of_contig proportion_NOT_shared_with_female`
 
 And in female+male mode:
 
-`>record_id length_of_contig proportion_shared_with_female median_k-mer_abundance`
+`>record_id length_of_contig proportion_NOT_shared_with_female median_k-mer_abundance`
 
 
 ### DiscoverY in 'best' mode
